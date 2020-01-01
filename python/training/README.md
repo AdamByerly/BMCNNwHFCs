@@ -1,2 +1,2 @@
-## Trainng Models
+## Training Models
 Coming soon...
