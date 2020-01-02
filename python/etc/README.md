@@ -145,10 +145,10 @@ This script can be used to count and report the number of trainable parametres (
 
 The script is executed thusly:
 ````
-python count_vars.py --merge-strategy=2
+python count_vars.py --merge_strategy=2
 ````
 
-Valid values for ``merge-strategy`` include:
+Valid values for ``merge_strategy`` are:
  - 0 - Use this to specify that the branches are to be merged with equal weight.
  - 1 - Use this to specify that the branches are to be merged with learned weights (such that those weights are intialized randomly--which is irrelevant for the purpose of counting trainable variables).
  - 2 - Use this to specify that the branches are to be merged with learned weights (such that those weights are intialized to 1--which is irrelevant for the purpose of counting trainable variables).
