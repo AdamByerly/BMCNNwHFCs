@@ -97,7 +97,7 @@ You must now create a copy of each model's output directory with  your chosen we
 
 After you have made these copies, you will need to execute ``python/etc/ensemble_evaluations.py`` from this repository, pointing that script at the weights files you have just copied.
 The output of this script is a file named ``ensemble_data.txt``.
-(_See [here](python/etc/ensemble_evaluations.py) for more information._)
+(_See [here](python/etc) for more information._)
 
 You will then use ``ensemble_data.txt`` as an input into the binary compiled from the C++/CUDA code in this repository.
 (_See [here](C%2B%2B) for more information._)
