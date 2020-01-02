@@ -45,11 +45,12 @@ def get_file_path(folder_path, tag):
     return os.path.join(folder_path, file_name)
 
 
-def go(summary_dirs, output_dir, epochs_of_data):
+def go(summary_dirs, output_dir):
     dirs = os.listdir(summary_dirs)
     d, steps = tabulate_events(summary_dirs)
     tags, values = zip(*d.items())
     np_values = np.array(values)
+    epochs_of_data = np.min([len(np_values[x[0]]) for x in enumerate(tags)])
     for index, tag in enumerate(tags):
         if len(np_values[index]) <= epochs_of_data:
             df = pd.DataFrame(np_values[index],
@@ -62,8 +63,6 @@ if __name__ == '__main__':
     p.add_argument("--event_data_dir",
         default=r"..\..\data\learnable_ones_init\weights")
     p.add_argument("--output_dir", default=r"..\..\data\learnable_ones_init")
-    p.add_argument("--epochs_of_data", default=300, type=int)
     a = p.parse_args()
 
-    go(summary_dirs=a.event_data_dir, output_dir=a.output_dir,
-        epochs_of_data=a.epochs_of_data)
+    go(summary_dirs=a.event_data_dir, output_dir=a.output_dir)
