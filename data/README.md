@@ -19,7 +19,7 @@ The following information can be found in each of the experiments' sub-directori
 ### all_wrong
 This directory contains renderings of the MNIST evaluation digits that no model in the experiment predicted correctly.
 
-Note: _Files are named with the following pattern: ``XXXX(Y).gif``.  Where ``XXXX`` is the position of the image in the MNIST evluation data and ``Y`` is the label for that image._
+Note: _Files are named with the following  pattern:_ ``XXXX(Y).gif`` _, where _``XXXX``_ is the position of the image in the MNIST evluation data and_ ``Y`` _is the label for that image._
 
 ### disagreeing
 This directory contains renderings of the MNIST evaluation digits that were predicted correctly by at least one model in the experiment and incorrectly by at least one model.

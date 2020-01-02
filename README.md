@@ -16,7 +16,7 @@ To produce GIFs of the MNIST evaluation digits ([python/etc/produce_MNIST_eval_d
 To extract the scalars from the tensorflow events.out.tfevents file created during training into CSV formatted data ([python/etc/extract_scalars_from_logs.py](python/etc/extract_scalars_from_logs.py)): 
 - Pandas (see [https://pandas.pydata.org](https://pandas.pydata.org))
 
-To evaluate all possible combinations of ensembles of models ([C++](C%2B%2B)):
+To evaluate all possible combinations of ensembles of models ([C++](C%2B%2B#evaluating-ensemble-model-combinations)):
 - The NVIDIA CUDA Toolkit (see [https://developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit))
 
 ## Reproducing the Results
@@ -100,7 +100,7 @@ The output of this script is a file named ``ensemble_data.txt``.
 (_See [here](python/etc#ensemble_evaluationspy) for more information._)
 
 You will then use ``ensemble_data.txt`` as an input into the binary compiled from the C++/CUDA code in this repository.
-(_See [here](C%2B%2B) for more information._)
+(_See [here](C%2B%2B#evaluating-ensemble-model-combinations) for more information._)
 
 &nbsp;
 &nbsp;

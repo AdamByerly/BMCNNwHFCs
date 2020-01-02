@@ -6,8 +6,8 @@ The python code in this directory includes:
 This script is used to iterate over the "best" weights for trials in an experiment and make predictions for the MNIST validation data based on those weights.
 For our experiments we used the highest top-1 prediction accuracy achieved at any point during training as the "best", but, concieveably, any set of weights could be chosen.
 This script produces up 3 outputs:
-1. **ensemble_data.txt** - This file is used by the binary compiled from the C++/CUDA code in this repository to search for ensembles.  (_See [here](../../C%2B%2B) for more information regarding the correct interpretation of this file's contents._)
-2. Assuming the ``--output_images`` parameter is set to ``True``, renderings of the MNIST evaluation digits that no model in the experiment predicted correctly.  Note: _Files are named with the following pattern: ``XXXX(Y).gif``.  Where ``XXXX`` is the position of the image in the MNIST evluation data and ``Y`` is the label for that image._
+1. **ensemble_data.txt** - This file is used by the binary compiled from the C++/CUDA code in this repository to search for ensembles.  (_See [here](../../C%2B%2B#evaluating-ensemble-model-combinations) for more information regarding the correct interpretation of this file's contents._)
+2. Assuming the ``--output_images`` parameter is set to ``True``, renderings of the MNIST evaluation digits that no model in the experiment predicted correctly.  Note: _Files are named with the following pattern:_ ``XXXX(Y).gif`` _, where _``XXXX``_ is the position of the image in the MNIST evluation data and_ ``Y`` _is the label for that image._
 3. Assuming the ``--output_images`` parameter is set to ``True``, renderings of the MNIST evaluation digits that were predicted correctly by at least one model in the experiment and incorrectly by at least one model.  _See the note in_ (2) _above regarding the interpretation of the files' names in this directory._
 
 This script is executed thusly:
