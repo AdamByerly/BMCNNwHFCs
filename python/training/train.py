@@ -185,7 +185,7 @@ if __name__ == "__main__":
     p.add_argument("--gpus", default=1, type=int)
     p.add_argument("--trials", default=32, type=int)
     p.add_argument("--log_dir",
-        default="../../data/weights/learnable_ones_init")
+        default="../../data/learnable_ones_init/weights")
     p.add_argument("--data_dir", default=r"../../data/mnist_data")
     a = p.parse_args()
 

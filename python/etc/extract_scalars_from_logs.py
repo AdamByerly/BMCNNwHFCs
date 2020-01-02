@@ -60,9 +60,8 @@ def go(summary_dirs, output_dir, epochs_of_data):
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument("--event_data_dir",
-        default=r"..\..\data\event_data\learnable_ones_init")
-    p.add_argument("--output_dir",
-        default=r"..\..\data\event_data\learnable_ones_init_extracted_scalars")
+        default=r"..\..\data\learnable_ones_init\weights")
+    p.add_argument("--output_dir", default=r"..\..\data\learnable_ones_init")
     p.add_argument("--epochs_of_data", default=300, type=int)
     a = p.parse_args()
 

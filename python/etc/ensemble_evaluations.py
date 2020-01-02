@@ -234,7 +234,7 @@ if __name__ == "__main__":
     p.add_argument("--data_dir", default=r"..\..\data\mnist_data")
     p.add_argument("--images_dir", default=r"..\..\data\images\all")
     p.add_argument("--log_dir",
-        default=r"..\..\data\weights\learnable_ones_init")
+        default=r"..\..\data\learnable_ones_init\ensemble_weights")
     p.add_argument("--output_dir", default=r"..\..\data\learnable_ones_init")
     a = p.parse_args()
 
