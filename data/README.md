@@ -17,12 +17,12 @@ The training events and saved weights of the trainable parameters for all 96 mod
 The following information can be found in each of the experiments' sub-directories.
 
 ### all_wrong
-This folder contains renderings of the MNIST evaluation digits that no model in the experiment predicted correctly.
+This directory contains renderings of the MNIST evaluation digits that no model in the experiment predicted correctly.
 
 Note: _Files are named with the following pattern: ``XXXX(Y).gif``.  Where ``XXXX`` is the position of the image in the MNIST evluation data and ``Y`` is the label for that image._
 
 ### disagreeing
-This folder contains renderings of the MNIST evaluation digits that were predicted correctly by at least one model in the experiment and incorrectly by at least one model.
+This directory contains renderings of the MNIST evaluation digits that were predicted correctly by at least one model in the experiment and incorrectly by at least one model.
 
 _See the note in the_ **all_wrong** _section above regarding the interpretation of the files' names in this directory._
 
