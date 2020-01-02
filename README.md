@@ -44,7 +44,7 @@ What follows is a truncated list of directories from one of our experiments:
 ````
 
 Next, you need to choose the weights to use from each individual model you trained.  Our training procedure saves multiple copies of weights during the training process:
-- the weights from the 2 best top-1 predictions (_as evaluated at the end of each epoch_)
+- the weights from the 2 best top-1 prediction accuracies (_as evaluated at the end of each epoch_)
 - the weights from the 2 lowest losses (_as evaluated at the end of each epoch_)
 - the weights at the end of each of the latest 2 epochs
 
@@ -71,7 +71,7 @@ weights-300-latest-74999.index
 weights-300-latest-74999.meta
 ````
 
-For our experiments, we used the best top-1 predictions found during the training of the models.  As a new set of weights for top-1 predictions is saved only when a new, higher top-1 accuracy is achieved, the saved top-1 weights from the highest numbered epoch represent the best top-1 prediction weights found during the duration of the model's training. 
+For our experiments, we used the best top-1 prediction accuaracies found during the training of the models.  As a new set of weights for top-1 predictions is saved only when a new, higher top-1 accuracy is achieved, the saved top-1 weights from the highest numbered epoch represent the best top-1 prediction weights found during the duration of the model's training. 
 
 As such, to follow our process in the example provided above, you'd choose the three files that are named beginning with ``weights-46-best_top1``. (_The number after_ ``weights-`` _in these files is the epoch number that the weights were saved after._)
 
@@ -99,7 +99,7 @@ After you have made these copies, you will need to execute ``python/etc/ensemble
 The output of this script is a file named ``ensemble_data.txt``.
 (_See [here](python/etc/ensemble_evaluations.py) for more information._)
 
-You will then use ``ensemble_data.txt`` as an input into the binary compiled from the C++ code in this repository.
+You will then use ``ensemble_data.txt`` as an input into the binary compiled from the C++/CUDA code in this repository.
 (_See [here](C%2B%2B) for more information._)
 
 &nbsp;
