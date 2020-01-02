@@ -16,9 +16,10 @@
 #ifndef DEVICEINFO_H
 #define DEVICEINFO_H
 
-#include <vector>
 #include <tuple>
-#include <cuda_runtime_api.h>
+#include <vector>
+#include <stdexcept>
+#include "cuda_runtime_api.h"
 
 class DeviceInfo
 {
@@ -59,7 +60,7 @@ class DeviceInfo
                 return std::get<1>( _max_grid_size[ device_idx ] ) ;
             if( dimension == 2 )
                 return std::get<2>( _max_grid_size[ device_idx ] ) ;
-            throw std::exception( "Invalid dimension requested!" ) ;
+            throw std::runtime_error( "Invalid dimension requested!" ) ;
         }
 
         int get_device_max_block_size( const int device_idx, const int dimension ) const
@@ -70,7 +71,7 @@ class DeviceInfo
                 return std::get<1>( _max_block_size[ device_idx ] ) ;
             if( dimension == 2 )
                 return std::get<2>( _max_block_size[ device_idx ] ) ;
-            throw std::exception( "Invalid dimension requested!" ) ;
+            throw std::runtime_error( "Invalid dimension requested!" ) ;
         }
 } ;
 

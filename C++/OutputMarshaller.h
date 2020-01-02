@@ -18,6 +18,7 @@
 
 #include <atomic>
 #include <thread>
+#include <utility>
 #include "Outputter.h"
 #include "OutputData.h"
 #include "OutputRecord.h"

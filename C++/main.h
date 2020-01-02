@@ -16,17 +16,14 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <string>
+#include <iostream>
 #include <stdexcept>
-#include "kernels.h"
+#include "type_defs.h"
 #include "DeviceInfo.h"
 #include "ProcessData.h"
 #include "EnsembleData.h"
-#include "ThreadSafeQueue.h"
 #include "OutputMarshaller.h"
-
-template<typename T>
-using combo_eval_kernel_wrapper
-    = std::function<void(int,int,const EnsembleData<T>*,const int*,int*)> ;
 
 template<typename T>
 void execute( ProcessData<T>& pd,
@@ -61,36 +58,6 @@ inline int cude_close()
     }
 
     return 0 ;
-}
-
-inline combo_eval_kernel_wrapper<int> get_majority_vote_func()
-{
-    return [&] ( int grid_size, int block_size,
-        const EnsembleData<int>* ensemble_data, const int* permutation_masks, int* results )
-    {
-        evaluate_combination_majority_vote<<<grid_size, block_size>>>(
-            ensemble_data, permutation_masks, results ) ;
-    } ;
-} ;
-
-inline combo_eval_kernel_wrapper<float> get_product_func()
-{
-    return [] ( int grid_size, int block_size,
-        const EnsembleData<float>* ensemble_data, const int* permutation_masks, int* results )
-    {
-        evaluate_combination_with_logits_product<<<grid_size, block_size>>>(
-            ensemble_data, permutation_masks, results ) ;
-    } ;
-}
-
-inline combo_eval_kernel_wrapper<float> get_sum_func()
-{
-    return [] ( int grid_size, int block_size,
-        const EnsembleData<float>* ensemble_data, const int* permutation_masks, int* results )
-    {
-        evaluate_combination_with_logits_sum<<<grid_size, block_size>>>(
-            ensemble_data, permutation_masks, results ) ;
-    } ;
 }
 
 template<typename T>

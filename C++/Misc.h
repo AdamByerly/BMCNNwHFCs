@@ -17,6 +17,7 @@
 #define MISC_H
 
 #include <chrono>
+#include <limits>
 #include <stdexcept>
 
 inline std::chrono::time_point<std::chrono::high_resolution_clock> get_start_time()

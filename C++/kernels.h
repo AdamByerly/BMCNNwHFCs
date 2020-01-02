@@ -16,11 +16,12 @@
 #ifndef KERNELS_H
 #define KERNELS_H
 
-#include <type_traits>
 #include "cuda_runtime.h"
-#include "EnsembleData.h"
+#include "type_defs.h"
 
-typedef std::integral_constant<int, 10> CLASS_COUNT ;
+combo_eval_kernel_wrapper<int> get_majority_vote_func() ;
+combo_eval_kernel_wrapper<float> get_product_func() ;
+combo_eval_kernel_wrapper<float> get_sum_func() ;
 
 __global__ void evaluate_combination_majority_vote(
     const EnsembleData<int>* ensemble_data,

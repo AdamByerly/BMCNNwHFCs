@@ -13,10 +13,16 @@
  * limitations under the License.
  * ===========================================================================*/
 
+#include <tuple>
+#include <thread>
+#include <vector>
+#include <utility>
+#include <iostream>
+#include <algorithm>
+#include <stdexcept>
 #include "main.h"
 #include "Misc.h"
-#include <tuple>
-#include <iostream>
+#include "kernels.h"
 
 // ReSharper disable once CppParameterMayBeConst
 int main( int argc, char *argv[] )

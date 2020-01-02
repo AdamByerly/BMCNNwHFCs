@@ -18,6 +18,8 @@
 
 #include <mutex>
 #include <queue>
+#include <thread>
+#include <utility>
 
 template<typename T>
 class ThreadSafeQueue final

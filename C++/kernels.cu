@@ -16,6 +16,36 @@
 #include "kernels.h"
 #include "device_launch_parameters.h"
 
+combo_eval_kernel_wrapper<int> get_majority_vote_func()
+{
+    return [&] ( int grid_size, int block_size,
+        const EnsembleData<int>* ensemble_data, const int* permutation_masks, int* results )
+    {
+        evaluate_combination_majority_vote<<<grid_size, block_size>>>(
+            ensemble_data, permutation_masks, results ) ;
+    } ;
+}
+
+combo_eval_kernel_wrapper<float> get_product_func()
+{
+    return [] ( int grid_size, int block_size,
+        const EnsembleData<float>* ensemble_data, const int* permutation_masks, int* results )
+    {
+        evaluate_combination_with_logits_product<<<grid_size, block_size>>>(
+            ensemble_data, permutation_masks, results ) ;
+    } ;
+}
+
+combo_eval_kernel_wrapper<float> get_sum_func()
+{
+    return [] ( int grid_size, int block_size,
+        const EnsembleData<float>* ensemble_data, const int* permutation_masks, int* results )
+    {
+        evaluate_combination_with_logits_sum<<<grid_size, block_size>>>(
+            ensemble_data, permutation_masks, results ) ;
+    } ;
+}
+
 //TODO: benchmark unrolling the CLASS_COUNT loops in the kernels
 
 __global__ void evaluate_combination_majority_vote(

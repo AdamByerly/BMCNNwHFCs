@@ -18,6 +18,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include "OutputData.h"
 #include "EnsembleData.h"
 #include "ThreadSafeQueue.h"

@@ -93,6 +93,7 @@
     <ClInclude Include="Outputter.h" />
     <ClInclude Include="ProcessData.h" />
     <ClInclude Include="ThreadSafeQueue.h" />
+    <ClInclude Include="type_defs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
