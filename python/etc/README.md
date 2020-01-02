@@ -32,7 +32,7 @@ If not specified, this value will default to 120.
 --gpus
 ``` 
  **Optional**.
-Use this to specify the number of GPUs available on the local machine to be trained on.
+Use this to specify the number of GPUs available on the local machine.
 If not specified, this value will default to 1.
 Note that at least one GPU is required.
 
