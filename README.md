@@ -4,16 +4,16 @@
 This repository contains the code used for the experiments detailed in a forthcoming paper. The paper will be available pre-published at arXiv very soon.
 
 ## Required Libraries
-To train models ([python/training](python/training)):
+To train models ([python/training](python/training#training-models)):
 -   TensorFlow (see  [http://www.tensorflow.org](http://www.tensorflow.org))
 -   NumPy (see  [http://www.numpy.org](http://www.numpy.org))
 -   OpenCV (see [http://opencv.org](http://opencv.org))
 -   At least one GPU
 
-To produce GIFs of the MNIST evaluation digits ([python/etc/produce_MNIST_eval_digits.py](python/etc/produce_MNIST_eval_digits.py)):
+To produce GIFs of the MNIST evaluation digits ([python/etc/produce_MNIST_eval_digits.py](python/etc#produce_mnist_eval_digitspy)):
 - Pillow (see [https://python-pillow.org/](https://python-pillow.org/))
 
-To extract the scalars from the tensorflow events.out.tfevents file created during training into CSV formatted data ([python/etc/extract_scalars_from_logs.py](python/etc/extract_scalars_from_logs.py)): 
+To extract the scalars from the tensorflow events.out.tfevents file created during training into CSV formatted data ([python/etc/extract_scalars_from_logs.py](python/etc#extract_scalars_from_logspy)): 
 - Pandas (see [https://pandas.pydata.org](https://pandas.pydata.org))
 
 To evaluate all possible combinations of ensembles of models ([C++](C%2B%2B#evaluating-ensemble-model-combinations)):
@@ -22,7 +22,7 @@ To evaluate all possible combinations of ensembles of models ([C++](C%2B%2B#eval
 ## Reproducing the Results
 
 ### Single Models
-Training a single model is relatively simple and can be accomplished with the execution of a single script.  See [python/training](python/training) for more information.
+Training a single model is relatively simple and can be accomplished with the execution of a single script.  See [python/training](python/training#training-models) for more information.
 
 ### Ensembles
 
