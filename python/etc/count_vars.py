@@ -13,18 +13,21 @@
 # limitations under the License.
 # ==============================================================================
 
+import argparse
 import numpy as np
 import tensorflow as tf
 from python.training.train import make_tower
 tf1 = tf.compat.v1
 
 
-def get_var_count(creator, class_count, image_size, image_channels):
+def get_var_count(creator,
+        class_count, image_size, image_channels, merge_strategy):
     tf1.disable_eager_execution()
     tf1.disable_control_flow_v2()
     tf1.reset_default_graph()
     model = creator(tf.zeros([1, image_size, image_size, image_channels]),
-            tf.zeros([1, class_count]), tf.constant(True), class_count)
+            tf.zeros([1, class_count]), tf.constant(True),
+            class_count, merge_strategy)
     with tf1.Session(config=tf1.ConfigProto(allow_soft_placement=True)) as sess:
         tf1.global_variables_initializer().run()
         variable_names = [v.name for v in tf1.trainable_variables()]
@@ -44,8 +47,18 @@ def get_var_count(creator, class_count, image_size, image_channels):
         return all_vars, bn_vars, conv_vars, cap_vars
 
 
-vs = get_var_count(make_tower, 10, 28, 1)
-print("Total Variable Count ........:  {:,}".format(vs[0]))
-print("Batch Norm. Variable Count ..:  {:,}".format(vs[1]))
-print("Convolutions Variable Count .:  {:,}".format(vs[2]))
-print("Capsules Variable Count .....:  {:,}".format(vs[3]))
+def go(merge_strategy):
+    vs = get_var_count(make_tower, 10, 28, 1, merge_strategy)
+    print("Total Variable Count ........:  {:,}".format(vs[0]))
+    print("Batch Norm. Variable Count ..:  {:,}".format(vs[1]))
+    print("Convolutions Variable Count .:  {:,}".format(vs[2]))
+    print("Capsules Variable Count .....:  {:,}".format(vs[3]))
+
+
+################################################################################
+if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--merge_strategy", default=2, type=float)
+    a = p.parse_args()
+
+    go(a.merge_strategy)
