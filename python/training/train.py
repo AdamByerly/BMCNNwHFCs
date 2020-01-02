@@ -27,7 +27,7 @@ import tensorflow as tf
 tf1 = tf.compat.v1
 
 
-def make_tower(features, labels, is_training, count_classes, merge_strategy):
+def make_tower(features, labels, is_training, count_classes, merge_strategy=0):
     t = is_training
     c = count_classes
     images = tf.reshape(features, [-1, 28, 28, 1])
