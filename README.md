@@ -1,5 +1,5 @@
 
-# A Merged Multi-Level Convolutional Network with Homogeneous Filter Capsules
+# A Merged Multi-Level Convolutional Network with Homogeneous Filter Capsules [![DOI](https://zenodo.org/badge/231257181.svg)](https://zenodo.org/badge/latestdoi/231257181)
 
 This repository contains the code used for the experiments detailed in a forthcoming paper. The paper will be available pre-published at arXiv very soon.
 
