@@ -58,5 +58,15 @@ Evaluating all 906192 ensemble combinations of 6 models...
 
 #### ensemble_data.txt File Format
 
-Coming soon...
+The contents of the ensemble_data.txt file are formatted as follows:
 
+1. The first line has four numbers on it:
+   1. The first number is the total number of validation samples.
+   2. The second number is the count of validation samples that all models predicted correctly.
+   3. The third number is the count of validation samples that none of the models predicted correctly.
+   4. The fourth number is the count of models that are in the file.
+2. If you subtract the second number on the first line from the first number on the first line, you get the number of validation samples that at least one model predicted correctly and at least one model predicted incorrectly.  The second line in the file will and must have this many numbers.  These numbers are the positions of the images in the MNIST evaluation data that correspond to the validation samples that at least one model predicted correctly and at least one model predicted incorrectly.
+3. The third line in the file has the same amount of numbers as the second line, but the numbers in this line are the correct labels for the validation samples that at least one model predicted correctly and at least one model predicted incorrectly.
+4. Each subsequent line in the file (one for each model in the experiment), begins with the model's run_name (as was specified or defaulted to in the call to ``train.py``).  After that is a series of numbers, the count of which depends on how the file was generated:
+    1. If the file was generated with ``--output_all_logits`` set to ``False`` or omitted, there will be the same amount of numbers (after the model's run_name) as there were on the second and third lines.  These numbers are the predictions made by the model on this line for those validation samples that at least one model predicted correctly and at least one model predicted incorrectly.
+    2. If the file was generated with ``--output_all_logits`` set to ``True``, there will be 10x as many numbers (after the model's run_name) as there were on the second and third lines.  These numbers are the logits the model on this line produced for those validation samples that at least one model predicted correctly and at least one model predicted incorrectly.  There, are 10x as many numbers on the line in this case because there are 10 output classes in the MNIST data.
