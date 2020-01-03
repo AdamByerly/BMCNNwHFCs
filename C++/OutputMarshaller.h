@@ -93,16 +93,16 @@ class OutputMarshaller
                 const auto acc = od.output_buffer[ i ] ;
                 if( acc >= od.output_accuracy_threshold )
                 {
-                    OutputRecord<T> or ;
-                    or.experiment_ids = od.experiment_ids ;
-                    or.ensemble_data = od.ensemble_data ;
-                    or.accuracy = acc ;
-                    or.ensemble_mask = static_cast<int*>( malloc(
-                        or.ensemble_data->experiment_count * sizeof( int ) ) ) ;
-                    memcpy( or.ensemble_mask,
-                        &od.input_buffer[ or .ensemble_data->experiment_count * i ],
-                        or.ensemble_data->experiment_count * sizeof( int ) ) ;
-                    _output_record_queue.push( std::move( or ) ) ;
+                    OutputRecord<T> orec ;
+                    orec.experiment_ids = od.experiment_ids ;
+                    orec.ensemble_data = od.ensemble_data ;
+                    orec.accuracy = acc ;
+                    orec.ensemble_mask = static_cast<int*>( malloc(
+                        orec.ensemble_data->experiment_count * sizeof( int ) ) ) ;
+                    memcpy( orec.ensemble_mask,
+                        &od.input_buffer[ orec.ensemble_data->experiment_count * i ],
+                        orec.ensemble_data->experiment_count * sizeof( int ) ) ;
+                    _output_record_queue.push( std::move( orec ) ) ;
                 }
             }
             free( od.input_buffer ) ;

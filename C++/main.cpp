@@ -13,9 +13,9 @@
  * limitations under the License.
  * ===========================================================================*/
 
-#include <tuple>
 #include <thread>
 #include <vector>
+#include <cstring>
 #include <utility>
 #include <iostream>
 #include <algorithm>
@@ -43,8 +43,8 @@ int main( int argc, char *argv[] )
         const auto accuracy_reporting_threshold = atoi( argv[ 3 ] ) ;
 
         std::vector<std::string> experiment_ids ;
-        if(    ! strcmp( ensemble_method, "product" )
-            || ! strcmp( ensemble_method, "sum" ) )
+        if(    ! std::strcmp( ensemble_method, "product" )
+            || ! std::strcmp( ensemble_method, "sum" ) )
         {
             EnsembleData<float> ed ;
             if( ! EnsembleData<float>::get_ensemble_data_w_logits(

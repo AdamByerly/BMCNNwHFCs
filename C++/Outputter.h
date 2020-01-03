@@ -73,26 +73,26 @@ class Outputter
         {
             while( ! *me_done || _output_queue.size() > 0 )
             {
-                OutputRecord<T> or ;
-                if( _output_queue.pop( or ) )
-                    handle_item( or ) ;
+                OutputRecord<T> orec ;
+                if( _output_queue.pop( orec ) )
+                    handle_item( orec ) ;
                 else
                     std::this_thread::yield() ;
             }
         }
 
-        static void handle_item( OutputRecord<T>& or )
+        static void handle_item( OutputRecord<T>& orec )
         {
             std::stringstream ss ;
-            ss << or.accuracy << ": " ;
-            for( auto i = 0 ; i < or.ensemble_data->experiment_count ; ++i )
-                if( or.ensemble_mask[ i ] )
-                    ss << ( *or.experiment_ids )[ i ] << "; " ;
+            ss << orec.accuracy << ": " ;
+            for( auto i = 0 ; i < orec.ensemble_data->experiment_count ; ++i )
+                if( orec.ensemble_mask[ i ] )
+                    ss << ( *orec.experiment_ids )[ i ] << "; " ;
 
             ss << std::endl ;
             std::cout << ss.str() ;
             //TODO: Do something with the output data
-            free( or.ensemble_mask ) ;
+            free( orec.ensemble_mask ) ;
         }
 } ;
 
