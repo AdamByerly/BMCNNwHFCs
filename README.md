@@ -1,6 +1,11 @@
 
 # A Branching and Merging Convolutional Network with Homogeneous Filter Capsules
 
+![license Apache 2](https://img.shields.io/static/v1?label=license&message=Apache%202&color=blue "license Apache 2")
+![version v1.0.1](https://img.shields.io/static/v1?label=version&message=v1.0.1&color=orange "version v1.0.1")
+![codefactor A](https://www.codefactor.io/Content/badges/A.svg "codefactor A")
+[![DOI](https://zenodo.org/badge/231257181.svg)](https://zenodo.org/badge/latestdoi/231257181)
+
 This repository contains the code used for the experiments detailed in a forthcoming paper. The paper will be available pre-published at arXiv very soon.
 
 ## Required Libraries
