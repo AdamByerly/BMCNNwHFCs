@@ -26,16 +26,11 @@ def tabulate_events(dpath):
     summary_iterators = [EventAccumulator(os.path.join(dpath, dname)).Reload()
                          for dname in os.listdir(dpath)]
     tags = summary_iterators[0].Tags()['scalars']
-    # for it in summary_iterators:
-    #    assert it.Tags()['scalars'] == tags
     out = defaultdict(list)
-    steps = []
     for tag in tags:
-        steps = [e.step for e in summary_iterators[0].Scalars(tag)]
-        for events in zip(*[acc.Scalars(tag) for acc in summary_iterators]):
-            assert len(set(e.step for e in events)) == 1
-            out[tag].append([e.value for e in events])
-    return out, steps
+        out[tag].extend([[e.value for e
+            in acc.Scalars(tag)] for acc in summary_iterators])
+    return out, tags
 
 
 def get_file_path(folder_path, tag):
@@ -47,15 +42,17 @@ def get_file_path(folder_path, tag):
 
 def go(summary_dirs, output_dir):
     dirs = os.listdir(summary_dirs)
-    d, steps = tabulate_events(summary_dirs)
-    tags, values = zip(*d.items())
-    np_values = np.array(values)
-    epochs_of_data = np.min([len(np_values[x[0]]) for x in enumerate(tags)])
+    events, tags = tabulate_events(summary_dirs)
     for index, tag in enumerate(tags):
-        if len(np_values[index]) <= epochs_of_data:
-            df = pd.DataFrame(np_values[index],
-                index=steps[:len(np_values[index])], columns=dirs)
-            df.to_csv(get_file_path(output_dir, tag))
+        events_count = np.max([len(l) for l in events[tag]])
+        # noinspection PyTypeChecker
+        # (It works exactly as we want)
+        vals = np.full((events_count, len(dirs)), None)
+        for x in range(len(dirs)):
+            for y in range(len(events[tag][x])):
+                vals[y, x] = events[tag][x][y]
+        df = pd.DataFrame(vals, columns=dirs)
+        df.to_csv(get_file_path(output_dir, tag))
 
 
 if __name__ == '__main__':
