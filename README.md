@@ -6,7 +6,7 @@
 ![codefactor A](https://www.codefactor.io/Content/badges/A.svg "codefactor A")
 [![DOI](https://zenodo.org//badge/DOI/10.5281/zenodo.3596980.svg)](https://doi.org/10.5281/zenodo.3596980)
 
-This repository contains the code used for the experiments detailed in a forthcoming paper. The paper will be available pre-published at arXiv very soon.
+This repository contains the code used for the experiments detailed in a forthcoming paper. The paper is available pre-published at arXiv: http://arxiv.org/abs/2001.09136
 
 ## Required Libraries
 To train models ([python/training](python/training#training-models)):
