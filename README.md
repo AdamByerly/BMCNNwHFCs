@@ -5,6 +5,7 @@
 ![version v1.0.1](https://img.shields.io/static/v1?label=version&message=v1.0.1&color=orange "version v1.0.1")
 ![codefactor A](https://www.codefactor.io/Content/badges/A.svg "codefactor A")
 [![DOI](https://zenodo.org//badge/DOI/10.5281/zenodo.3596980.svg)](https://doi.org/10.5281/zenodo.3596980)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-branching-and-merging-convolutional-network/image-classification-on-mnist)](https://paperswithcode.com/sota/image-classification-on-mnist?p=a-branching-and-merging-convolutional-network)
 
 This repository contains the code used for the experiments detailed in a forthcoming paper. The paper is available pre-published at arXiv: http://arxiv.org/abs/2001.09136
 
